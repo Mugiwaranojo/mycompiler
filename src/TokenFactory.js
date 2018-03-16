@@ -65,7 +65,7 @@ export default class TokenFactory{
 					isFloat = true
 				  }
 
-				  if (!isDigit(sub_char) && sub_char !== '.') {
+				  if (!this.isDigit(sub_char) && sub_char !== '.') {
 					return new Token(isFloat ? 'number-float' : 'number', value.substring(0, sub_current), pos);
 					current += sub_current
 					break
@@ -96,11 +96,6 @@ export default class TokenFactory{
 				break
 			
 		}
-	}
-	
-	static isAlpa(val) {
-		const ALPHA = /([A-Z]|[a-z])/;
-		return val.match(ALPHA)
 	}
 
 	static isDigit(val) {
